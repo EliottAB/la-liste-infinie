@@ -28,9 +28,333 @@ let mousePosX
 const categories = ["animes"]
 const mockDatas = [{"name":"Boku no piko","date":"2023-11-26T22:14:14.905Z","favorite":false,"view":false,"category":"animes","colorBG":"#FFFFFF","colorTXT":"#000000"},{"name":"Boku no hero academia","date":"2023-11-26T22:14:14.905Z","favorite":false,"view":false,"category":"animes","colorBG":"#FFFFFF","colorTXT":"#000000"},{"name":"L'étrange noel de mr jack","date":"2023-11-26T22:14:14.905Z","favorite":false,"view":false,"category":"films","colorBG":"#FFFFFF","colorTXT":"#000000"},{"name":"Amelie Poulain","date":"2023-11-26T22:14:14.905Z","favorite":false,"view":false,"category":"films","colorBG":"#FFFFFF","colorTXT":"#000000"},{"name":"Link click","date":"2023-11-26T22:14:14.905Z","favorite":false,"view":false,"category":"animes","colorBG":"#FFFFFF","colorTXT":"#000000"},{"name":"Le bossu","date":"2023-11-26T22:14:14.905Z","favorite":false,"view":false,"category":"films","colorBG":"#FFFFFF","colorTXT":"#000000"},{"name":"la librairie des mystères","date":"2023-11-26T22:14:14.905Z","favorite":false,"view":false,"category":"mangas","colorBG":"#FFFFFF","colorTXT":"#000000"},{"name":"i told the sunset about you","date":"2023-11-26T22:14:14.905Z","favorite":false,"view":false,"category":"tdramas","colorBG":"#FFFFFF","colorTXT":"#000000"},{"name":"mario","date":"2023-11-26T22:14:14.905Z","favorite":false,"view":false,"category":"films","colorBG":"#FFFFFF","colorTXT":"#000000"},{"name":"les omelettes c'est pas bon","date":"2023-11-26T22:14:14.905Z","favorite":false,"view":false,"category":"livres","colorBG":"#FFFFFF","colorTXT":"#000000"}]
 
-if (!localStorage.getItem("datas")) {
-    localStorage.setItem("datas", JSON.stringify([]))
-}
+    localStorage.setItem("datas", JSON.stringify([
+        {
+            name: "SPARE ME A GREAT WORLD (spare me, great lord?)",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "animes",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Momokori (romance)",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "animes",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Kensoman",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "animes",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Tokyo Godfathers",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "animes",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Garden of words",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "animes",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "My love story",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "animes",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Attendre saison 2: link click (c chinois)",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "animes",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "trigun stampede",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "animes",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Skip and loafer",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "animes",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "MANGA:",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "animes",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Sweat and soap",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "animes",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Black and white (bl)",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "animes",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Trouver bl thai mec qui suicide et se réincarnent",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "animes",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "My Rumspringa",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "animes",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Company and private life",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "animes",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "A.I.C.O",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "animes",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Luz à Ozville",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "series",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Sense8",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "series",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Bojack horseman",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "series",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Why ru [korea version] ?",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "kdramas",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Nevertheless",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "kdramas",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "My love mix-up (bl jp)",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "kdramas",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Doom at your service",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "kdramas",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "senior secret love:puppy honey (bl) A tale of thousand stars (bl)",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "kdramas",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Roomates of poongduck304 (bl)",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "kdramas",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Jack o' frost. available on Gaga00Lala",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "kdramas",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Ghost Host Ghost house (bl)",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "kdramas",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Dr John",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "kdramas",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "The eighth sense",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "kdramas",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "not me",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "tdramas",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "The war of flowers",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "tdramas",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Love mechanics (bl)",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "tdramas",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Love sick (bl?)",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "tdramas",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Film: Bad genius (bkpp avait voulu jouer dedans)",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "tdramas",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "your name engraved herein (netflix, sad gay)",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "films",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+        {
+            name: "Le livre perdu des sortilèges",
+            favorite: false,
+            date: new Date(),
+            view: false,
+            category: "livres",
+            colorBG: "#FFFFFF",
+            colorTXT: "#000000"
+        },
+    ]))
+
 
 let datas = JSON.parse(localStorage.getItem("datas"))
 
