@@ -112,20 +112,11 @@ if (!localStorage.getItem("datas")) {
             colorTXT: "#000000"
         },
         {
-            name: "MANGA:",
-            favorite: false,
-            date: new Date(),
-            view: false,
-            category: "animes",
-            colorBG: "#FFFFFF",
-            colorTXT: "#000000"
-        },
-        {
             name: "Sweat and soap",
             favorite: false,
             date: new Date(),
             view: false,
-            category: "animes",
+            category: "mangas",
             colorBG: "#FFFFFF",
             colorTXT: "#000000"
         },
@@ -134,7 +125,7 @@ if (!localStorage.getItem("datas")) {
             favorite: false,
             date: new Date(),
             view: false,
-            category: "animes",
+            category: "mangas",
             colorBG: "#FFFFFF",
             colorTXT: "#000000"
         },
@@ -143,7 +134,7 @@ if (!localStorage.getItem("datas")) {
             favorite: false,
             date: new Date(),
             view: false,
-            category: "animes",
+            category: "mangas",
             colorBG: "#FFFFFF",
             colorTXT: "#000000"
         },
@@ -152,7 +143,7 @@ if (!localStorage.getItem("datas")) {
             favorite: false,
             date: new Date(),
             view: false,
-            category: "animes",
+            category: "mangas",
             colorBG: "#FFFFFF",
             colorTXT: "#000000"
         },
@@ -161,7 +152,7 @@ if (!localStorage.getItem("datas")) {
             favorite: false,
             date: new Date(),
             view: false,
-            category: "animes",
+            category: "mangas",
             colorBG: "#FFFFFF",
             colorTXT: "#000000"
         },
@@ -170,7 +161,7 @@ if (!localStorage.getItem("datas")) {
             favorite: false,
             date: new Date(),
             view: false,
-            category: "animes",
+            category: "mangas",
             colorBG: "#FFFFFF",
             colorTXT: "#000000"
         },
