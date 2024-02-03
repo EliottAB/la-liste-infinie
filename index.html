@@ -6,6 +6,7 @@
     <title>La liste infinie</title>
     <link rel="stylesheet" href="./styles.css">
     <link rel="favicon" href="favicon.ico">
+    <link rel="manifest" href="manifest.json"/>
 </head>
 <body>
     <img class="background" src="./assets/background3qual.jpeg" alt="background">
@@ -30,6 +31,7 @@
                     <option value="kdramas">K-dramas</option>
                     <option value="tdramas">T-dramas</option>
                     <option value="livres">Livres</option>
+                    <option value="jeux">Jeux</option>
                 </select>
             </div>
             <div class="name-input add-inputs">
@@ -68,17 +70,9 @@
         <nav>
             <ul class="selected">
                 <p>Selectionnés</p>
-                <li style="order: 1;" class="hoverable" id="animes"><img src="./assets/luffy.png" alt="">Animes</li>
             </ul>
             <ul class="unselected">
                 <p>Non-séléctionnés</p>
-                <li style="order: 2;" class="hoverable" id="mangas"><img src="./assets/manga.png" alt="">Mangas</li>
-                <li style="order: 3;" class="hoverable" id="webtoons"><img src="./assets/webtoon.png" alt="">WebToons</li>
-                <li style="order: 4;" class="hoverable" id="films"><img src="./assets/CD.png" alt="">Films</li>
-                <li style="order: 5;" class="hoverable" id="series"><img src="./assets/serie.png" alt="">Séries</li>
-                <li style="order: 6;" class="hoverable" id="kdramas"><img src="./assets/korea.png" alt="">K-dramas</li>
-                <li style="order: 7;" class="hoverable" id="tdramas"><img src="./assets/thailand.png" alt="">T-dramas</li>
-                <li style="order: 8;" class="hoverable" id="livres"><img src="./assets/book.png" alt="">Livres</li>
             </ul>
         </nav>
         <button class="share-button hoverable">Export / import <img src="assets/share-solid.svg" alt="share"></button>
@@ -95,11 +89,11 @@
                 <input type="search" placeholder="Rechercher..." autocomplete="off">
             </div>
             <select name="sort" class="select-sort hoverable" id="sort" autocomplete="off">
-                <option value="alpha" selected>Ordre Alphabétique</option>
-                <option value="category">Catégorie</option>
-                <option value="date">Date</option>
-                <option value="colorBG">Couleur fond</option>
-                <option value="colorTXT">Couleur text</option>
+                <option value="alpha" class="sortOption">Ordre Alphabétique</option>
+                <option value="category" class="sortOption">Catégorie</option>
+                <option value="date" class="sortOption">Date</option>
+                <option value="colorBG" class="sortOption">Couleur fond</option>
+                <option value="colorTXT" class="sortOption">Couleur text</option>
             </select>
             <button class="add-button hoverable"><img src="./assets/plus-solid.svg" alt="plus"></button>
         </header>

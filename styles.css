@@ -46,7 +46,8 @@ aside{
     left: 0;
     display: flex;
     flex-direction: column;
-    height: 100svh;
+    min-height: 100svh;
+    height: 100vh;
     width: 20em;
     background-color: #311758;
     overflow: auto !important;
@@ -392,6 +393,7 @@ main header{
     padding: 0 1em;
     border: #311758 .1em solid;
     border-radius: .5em;
+    color: black;
 }
 
 .continue{
@@ -477,7 +479,28 @@ main header{
 .item-color{
     width: 50%;
     height: 1.5em;
-    border-width: .15em;
+    border: .15em outset white !important;
+    padding: 0 !important;
+}
+
+.empty{
+    position: relative;
+    margin-top: 20svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.empty img{
+    width: 10em;
+    filter: brightness(1.1);
+}
+
+.empty p{
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+    color: #311758;
 }
 
 @media screen and (max-width: 1024px) {
@@ -520,7 +543,7 @@ main header{
 
 @media screen and (max-width: 720px) {
     body{
-        font-size: 2.2222vw;
+        font-size: 2.8222vw;
     }
 
     aside{
@@ -563,4 +586,9 @@ main header{
     .trash-confirm{
         font-size: 1.3em;
     }
+    
+    .empty{
+        margin-top: 27svh;
+    }
+
 }

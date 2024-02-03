@@ -1,9 +1,9 @@
 const customCursor = document.querySelector(".custom-cursor")
 const closeMenuBtn = document.querySelector(".close-menu")
 const aside = document.querySelector("aside")
-const selectedList = document.querySelector(".selected")
+let selectedList = document.querySelector(".selected")
 const selectedItems = document.querySelectorAll(".selected li")
-const unselectedList = document.querySelector(".unselected")
+let unselectedList = document.querySelector(".unselected")
 const unselectedItems = document.querySelectorAll(".unselected li")
 const shareButton = document.querySelector(".share-button")
 const shareModale = document.querySelector('.share-modale')
@@ -23,15 +23,105 @@ const nameInput = document.querySelector(".name-input input")
 const showMenuBtn = document.querySelector(".menu-btn")
 const searchInput = document.querySelector(".searchbar input")
 const sortInput = document.querySelector(".select-sort")
+const sortOptions = document.querySelectorAll(".sortOption")
 let mousePosY
 let mousePosX
-const categories = ["animes"]
+const asideCategs = [
+    {
+        id: "animes",
+        text: "Animes",
+        src: "./assets/luffy.png",
+    },
+    {
+        id: "mangas",
+        text: "Mangas",
+        src: "./assets/manga.png",
+    },
+    {
+        id: "webtoons",
+        text: "WebToons",
+        src: "./assets/webtoon.png",
+    },
+    {
+        id: "films",
+        text: "Films",
+        src: "./assets/CD.png",
+    },
+    {
+        id: "series",
+        text: "Séries",
+        src: "./assets/serie.png",
+    },
+    {
+        id: "kdramas",
+        text: "K-dramas",
+        src: "./assets/korea.png",
+    },
+    {
+        id: "tdramas",
+        text: "T-dramas",
+        src: "./assets/thailand.png",
+    },
+    {
+        id: "livres",
+        text: "Livres",
+        src: "./assets/book.png",
+    },
+    {
+        id: "jeux",
+        text: "Jeux",
+        src: "./assets/gaming.png",
+    },
+]
 
+if (!localStorage.getItem("categories")) {
+    localStorage.setItem("categories", JSON.stringify(["animes", "mangas", "webtoons", "films", "series", "kdramas", "tdramas", "livres", "jeux"]))
+}
+
+if (!localStorage.getItem("sort")) {
+    localStorage.setItem("sort", "alpha")
+}
+
+// localStorage.setItem("datas", JSON.stringify([{name: "SPARE ME A GREAT WORLD (spare me, great lord?)",favorite: false,date: new Date(),view: false,category: "animes",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Momokori (romance)",favorite: false,date: new Date(),view: false,category: "animes",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Kensoman",favorite: false,date: new Date(),view: false,category: "animes",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Tokyo Godfathers",favorite: false,date: new Date(),view: false,category: "animes",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Garden of words",favorite: false,date: new Date(),view: false,category: "animes",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "My love story",favorite: false,date: new Date(),view: false,category: "animes",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Attendre saison 2: link click (c chinois)",favorite: false,date: new Date(),view: false,category: "animes",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "trigun stampede",favorite: false,date: new Date(),view: false,category: "animes",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Skip and loafer",favorite: false,date: new Date(),view: false,category: "animes",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Sweat and soap",favorite: false,date: new Date(),view: false,category: "mangas",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Black and white (bl)",favorite: false,date: new Date(),view: false,category: "mangas",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Trouver bl thai mec qui suicide et se réincarnent",favorite: false,date: new Date(),view: false,category: "mangas",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "My Rumspringa",favorite: false,date: new Date(),view: false,category: "mangas",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Company and private life",favorite: false,date: new Date(),view: false,category: "mangas",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "A.I.C.O",favorite: false,date: new Date(),view: false,category: "mangas",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Luz à Ozville",favorite: false,date: new Date(),view: false,category: "series",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Sense8",favorite: false,date: new Date(),view: false,category: "series",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Bojack horseman",favorite: false,date: new Date(),view: false,category: "series",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Why ru [korea version] ?",favorite: false,date: new Date(),view: false,category: "kdramas",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Nevertheless",favorite: false,date: new Date(),view: false,category: "kdramas",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "My love mix-up (bl jp)",favorite: false,date: new Date(),view: false,category: "kdramas",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Doom at your service",favorite: false,date: new Date(),view: false,category: "kdramas",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "senior secret love:puppy honey (bl) A tale of thousand stars (bl)",favorite: false,date: new Date(),view: false,category: "kdramas",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Roomates of poongduck304 (bl)",favorite: false,date: new Date(),view: false,category: "kdramas",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Jack o' frost. available on Gaga00Lala",favorite: false,date: new Date(),view: false,category: "kdramas",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Ghost Host Ghost house (bl)",favorite: false,date: new Date(),view: false,category: "kdramas",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Dr John",favorite: false,date: new Date(),view: false,category: "kdramas",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "The eighth sense",favorite: false,date: new Date(),view: false,category: "kdramas",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "not me",favorite: false,date: new Date(),view: false,category: "tdramas",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "The war of flowers",favorite: false,date: new Date(),view: false,category: "tdramas",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Love mechanics (bl)",favorite: false,date: new Date(),view: false,category: "tdramas",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Love sick (bl?)",favorite: false,date: new Date(),view: false,category: "tdramas",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Film: Bad genius (bkpp avait voulu jouer dedans)",favorite: false,date: new Date(),view: false,category: "tdramas",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "your name engraved herein (netflix, sad gay)",favorite: false,date: new Date(),view: false,category: "films",colorBG: "#FFFFFF",colorTXT: "#000000"},{name: "Le livre perdu des sortilèges",favorite: false,date: new Date(),view: false,category: "livres",colorBG: "#FFFFFF",colorTXT: "#000000"},]))
+// localStorage.setItem("datas", JSON.stringify([]))
 if (!localStorage.getItem("datas")) {
     localStorage.setItem("datas", JSON.stringify([]))
 }
 
 let datas = JSON.parse(localStorage.getItem("datas"))
+let categories = JSON.parse(localStorage.getItem("categories"))
+let sortBy = localStorage.getItem("sort")
+
+function renderAsideCategories(){
+    asideCategs.forEach(categ => {
+        const newElement = document.createElement("li")
+        const newElementImg = document.createElement("img")
+        newElementImg.setAttribute("src", categ.src)
+        newElement.appendChild(newElementImg)
+        newElement.innerHTML += categ.text
+        newElement.id = categ.id
+        newElement.style = 'order: ' + (asideCategs.indexOf(categ)+1) + ';'
+        newElement.classList.add("hoverable")
+        if (categories.indexOf(categ.id)>-1) {
+            selectedList.appendChild(newElement)
+            navItemListener(newElement, selectedList, unselectedList)
+        }else{
+            unselectedList.appendChild(newElement)
+            navItemListener(newElement, unselectedList, selectedList)
+        }
+    });
+    selectedList = document.querySelector(".selected")
+    unselectedList = document.querySelector(".unselected")
+    console.log(selectedList)
+}
+
+function renderSort(){
+    sortOptions.forEach(option => {
+        if (option.value == sortBy) {
+            option.selected = true
+        }
+    });
+}
 
 function positionCursor(e){
     if (e.clientX) {
@@ -89,6 +179,7 @@ const navItemListener = (element, oldList, newList) => {
         }else{
             categories.splice(categories.indexOf(element.id), 1)
         }
+        localStorage.setItem("categories", JSON.stringify(categories))
         initializeData()
         customCursor.style.backgroundColor = ""
         customCursor.style.borderRadius = ""
@@ -102,14 +193,6 @@ closeMenuBtn.addEventListener("click", () => {
 showMenuBtn.addEventListener("click", () => {
     aside.style.left = "0"
 })
-
-unselectedItems.forEach(element => {
-    navItemListener(element, unselectedList, selectedList)
-});
-
-selectedItems.forEach(element => {
-    navItemListener(element, selectedList, unselectedList)
-});
 
 const getIcon = (category) => {
     switch (category) {
@@ -136,6 +219,9 @@ const getIcon = (category) => {
 
         case "livres":
             return "./assets/book.png";
+
+        case "jeux":
+            return "./assets/gaming.png";
     
         default:
             break;
@@ -152,27 +238,32 @@ function initializeData(){
             case "alpha":
                 sorterA = a.name.toLowerCase();
                 sorterB = b.name.toLowerCase();
+                localStorage.setItem("sort", "alpha")
                 break;
     
             case "category":
                 sorterA = a.category;
                 sorterB = b.category;
+                localStorage.setItem("sort", "category")
                 break;
     
             case "date":
                 sorterA = new Date(b.date);
                 sorterB = new Date(a.date);
+                localStorage.setItem("sort", "date")
                 break;
     
             case "colorBG":
                 sorterA = a.colorBG;
                 sorterB = b.colorBG;
+                localStorage.setItem("sort", "colorBG")
                 break;
     
             case "colorTXT":
                 console.log(a.colorTXT)
                 sorterA = b.colorTXT;
                 sorterB = a.colorTXT;
+                localStorage.setItem("sort", "colorTXT")
                 break;
         
             default:
@@ -220,7 +311,7 @@ function initializeData(){
                 li.style.background = e.target.value
                 data.colorBG = e.target.value
                 putDataInLocalStorage()
-                
+                initializeData()
             })
 
             const colorTxt = document.createElement("input")
@@ -232,6 +323,7 @@ function initializeData(){
                 li.style.color = e.target.value
                 data.colorTXT = e.target.value
                 putDataInLocalStorage()
+                initializeData()
             })
             
             dateColorContainer.appendChild(date)
@@ -281,13 +373,23 @@ function initializeData(){
     });
     if (usedData.length == 0) {
         const empty = document.createElement("div")
+        empty.classList.add("empty")
+        const emptyText = document.createElement("p")
+        const emptyImg = document.createElement("img")
+        emptyImg.draggable = false
+        emptyImg.src = "assets/empty.png"
+        if (datas.length == 0) {
+            emptyText.innerText = "Aucun élément !"
+        }else{
+            emptyText.innerText = "Aucun élément selectionné !"
+        }
+        empty.appendChild(emptyImg)
+        empty.appendChild(emptyText)
         mainList.appendChild(empty)
     }
     makesHoverable()
     searchItem()
 }
-
-initializeData()
 
 function putDataInLocalStorage(){
     localStorage.setItem('datas', JSON.stringify(datas))
@@ -384,3 +486,7 @@ searchInput.addEventListener("keyup", () => {
 sortInput.addEventListener("change", () => {
     initializeData()
 })
+
+renderAsideCategories()
+renderSort()
+initializeData()
