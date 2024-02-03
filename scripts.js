@@ -26,8 +26,10 @@ const sortInput = document.querySelector(".select-sort")
 const sortOptions = document.querySelectorAll(".sortOption")
 let mousePosY
 let mousePosX
-let touchStartPos
-let touchEndPos
+let touchStartPosX
+let touchStartPosY
+let touchEndPosX
+let touchEndPosY
 const swipeRangePx = 80
 
 const asideCategs = [
@@ -492,15 +494,18 @@ sortInput.addEventListener("change", () => {
 })
 
 window.addEventListener("touchstart", (e) => {
-    touchStartPos = e.touches[0].clientX
+    touchStartPosX = e.touches[0].clientX
+    touchStartPosY = e.touches[0].clientY
 })
 
 window.addEventListener("touchend", (e) => {
-    touchEndPos = e.changedTouches[0].clientX
-    if (touchEndPos - touchStartPos > swipeRangePx) {
+    touchEndPosX = e.changedTouches[0].clientX
+    touchEndPosY = e.changedTouches[0].clientY
+    const rangeXisSup = (Math.abs(touchEndPosY - touchStartPosY) < Math.abs(touchEndPosX - touchStartPosX))
+    if (touchEndPosX - touchStartPosX > swipeRangePx && rangeXisSup) {
         aside.style.left = "0"
     }
-    if (touchEndPos - touchStartPos < -swipeRangePx) {
+    if (touchEndPosX - touchStartPosX < -swipeRangePx && rangeXisSup) {
         aside.style.left = "-100vw"
     }
 })
