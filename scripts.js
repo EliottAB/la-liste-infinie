@@ -28,6 +28,8 @@ let mousePosY
 let mousePosX
 let touchStartPos
 let touchEndPos
+const swipeRangePx = 80
+
 const asideCategs = [
     {
         id: "animes",
@@ -495,10 +497,10 @@ window.addEventListener("touchstart", (e) => {
 
 window.addEventListener("touchend", (e) => {
     touchEndPos = e.changedTouches[0].clientX
-    if (touchEndPos - touchStartPos > 60) {
+    if (touchEndPos - touchStartPos > swipeRangePx) {
         aside.style.left = "0"
     }
-    if (touchEndPos - touchStartPos < -60) {
+    if (touchEndPos - touchStartPos < -swipeRangePx) {
         aside.style.left = "-100vw"
     }
 })
