@@ -26,6 +26,8 @@ const sortInput = document.querySelector(".select-sort")
 const sortOptions = document.querySelectorAll(".sortOption")
 let mousePosY
 let mousePosX
+let touchStartPos
+let touchEndPos
 const asideCategs = [
     {
         id: "animes",
@@ -400,6 +402,22 @@ function closeModale(modale){
     modale.style.pointerEvents = "none";
 }
 
+function searchItem(){
+    const littleValue = searchInput.value.toLowerCase()
+    const noCorespondingData = datas.filter((data) => data.name.toLowerCase().indexOf(littleValue) == -1)
+    const correspondingData = datas.filter((data) => data.name.toLowerCase().indexOf(littleValue) > -1)
+    noCorespondingData.forEach(data => {
+        if (data?.element?.innerHTML) {
+            data.element.style.display = "none"
+        }
+    });
+    correspondingData.forEach(data => {
+        if (data?.element?.innerHTML) {
+            data.element.style.display = ""
+        }
+    });
+}
+
 addBtn.addEventListener("click", () => {
     addModale.style.opacity = 1;
     addModale.style.pointerEvents = "all";
@@ -463,28 +481,26 @@ closeShareModaleBtn.addEventListener("click", () => {
     closeModale(shareModale)
 })
 
-function searchItem(){
-    const littleValue = searchInput.value.toLowerCase()
-    const noCorespondingData = datas.filter((data) => data.name.toLowerCase().indexOf(littleValue) == -1)
-    const correspondingData = datas.filter((data) => data.name.toLowerCase().indexOf(littleValue) > -1)
-    noCorespondingData.forEach(data => {
-        if (data?.element?.innerHTML) {
-            data.element.style.display = "none"
-        }
-    });
-    correspondingData.forEach(data => {
-        if (data?.element?.innerHTML) {
-            data.element.style.display = ""
-        }
-    });
-}
-
 searchInput.addEventListener("keyup", () => {
     searchItem()
 })
 
 sortInput.addEventListener("change", () => {
     initializeData()
+})
+
+window.addEventListener("touchstart", (e) => {
+    touchStartPos = e.touches[0].clientX
+})
+
+window.addEventListener("touchend", (e) => {
+    touchEndPos = e.changedTouches[0].clientX
+    if (touchEndPos - touchStartPos > 60) {
+        aside.style.left = "0"
+    }
+    if (touchEndPos - touchStartPos < -60) {
+        aside.style.left = "-100vw"
+    }
 })
 
 renderAsideCategories()
