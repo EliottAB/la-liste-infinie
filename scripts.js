@@ -200,7 +200,7 @@ closeMenuBtn.addEventListener("click", () => {
 
 showMenuBtn.addEventListener("click", () => {
     aside.style.left = "0"
-    mainList.style.maxHeight = "calc(100svh - 15em)"
+    mainList.style.maxHeight = "calc(100vh - 15em)"
     mainList.style.overflowY = "hidden"
 })
 
@@ -508,7 +508,7 @@ window.addEventListener("touchend", (e) => {
     const rangeXisSup = (Math.abs(touchEndPosY - touchStartPosY) < Math.abs(touchEndPosX - touchStartPosX))
     if (touchEndPosX - touchStartPosX > swipeRangePx && rangeXisSup) {
         aside.style.left = "0"
-        mainList.style.maxHeight = "calc(100svh - 15em)"
+        mainList.style.maxHeight = "calc(100vh - 15em)"
         mainList.style.overflowY = "hidden"
     }
     if (touchEndPosX - touchStartPosX < -swipeRangePx && rangeXisSup) {
