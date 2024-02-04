@@ -192,18 +192,6 @@ const navItemListener = (element, oldList, newList) => {
     })
 }
 
-closeMenuBtn.addEventListener("click", () => {
-    aside.style.left = "-100vw"
-    mainList.style.maxHeight = ""
-    mainList.style.overflowY = ""
-})
-
-showMenuBtn.addEventListener("click", () => {
-    aside.style.left = "0"
-    mainList.style.maxHeight = "calc(100vh - 15em)"
-    mainList.style.overflowY = "hidden"
-})
-
 const getIcon = (category) => {
     switch (category) {
         case "animes":
@@ -426,6 +414,28 @@ function searchItem(){
     });
 }
 
+function openMenu(){
+    aside.style.left = "0"
+    setTimeout(() => {
+        mainList.style.maxHeight = "calc(100vh - 15em)"
+        mainList.style.overflowY = "hidden"
+    }, 300);
+}
+
+function closeMenu(){
+    aside.style.left = "-100vw"
+    mainList.style.maxHeight = ""
+    mainList.style.overflowY = ""
+}
+
+closeMenuBtn.addEventListener("click", () => {
+    closeMenu()
+})
+
+showMenuBtn.addEventListener("click", () => {
+    openMenu()
+})
+
 addBtn.addEventListener("click", () => {
     addModale.style.opacity = 1;
     addModale.style.pointerEvents = "all";
@@ -507,14 +517,10 @@ window.addEventListener("touchend", (e) => {
     touchEndPosY = e.changedTouches[0].clientY
     const rangeXisSup = (Math.abs(touchEndPosY - touchStartPosY) < Math.abs(touchEndPosX - touchStartPosX))
     if (touchEndPosX - touchStartPosX > swipeRangePx && rangeXisSup) {
-        aside.style.left = "0"
-        mainList.style.maxHeight = "calc(100vh - 15em)"
-        mainList.style.overflowY = "hidden"
+        openMenu()
     }
     if (touchEndPosX - touchStartPosX < -swipeRangePx && rangeXisSup) {
-        aside.style.left = "-100vw"
-        mainList.style.maxHeight = ""
-        mainList.style.overflowY = ""
+        closeMenu()
     }
 })
 
