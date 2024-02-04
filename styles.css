@@ -563,6 +563,11 @@ main header{
         font-size: 1.2em;
     }
 
+    .share-button{
+        margin: 2em auto 4em;
+    }
+    
+
     .main-list li{
         flex-direction: column;
         gap: .8em;
