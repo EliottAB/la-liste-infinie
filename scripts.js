@@ -194,10 +194,14 @@ const navItemListener = (element, oldList, newList) => {
 
 closeMenuBtn.addEventListener("click", () => {
     aside.style.left = "-100vw"
+    mainList.style.maxHeight = ""
+    mainList.style.overflowY = ""
 })
 
 showMenuBtn.addEventListener("click", () => {
     aside.style.left = "0"
+    mainList.style.maxHeight = "calc(100svh - 15em)"
+    mainList.style.overflowY = "hidden"
 })
 
 const getIcon = (category) => {
@@ -504,9 +508,13 @@ window.addEventListener("touchend", (e) => {
     const rangeXisSup = (Math.abs(touchEndPosY - touchStartPosY) < Math.abs(touchEndPosX - touchStartPosX))
     if (touchEndPosX - touchStartPosX > swipeRangePx && rangeXisSup) {
         aside.style.left = "0"
+        mainList.style.maxHeight = "calc(100svh - 15em)"
+        mainList.style.overflowY = "hidden"
     }
     if (touchEndPosX - touchStartPosX < -swipeRangePx && rangeXisSup) {
         aside.style.left = "-100vw"
+        mainList.style.maxHeight = ""
+        mainList.style.overflowY = ""
     }
 })
 
